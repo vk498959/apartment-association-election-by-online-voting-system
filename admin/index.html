@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>admin</title>
+    <style>
+        center{
+  background-color: skyblue;
+  margin:10%;
+  border:solid;
+}
+header{
+  font-weight: bold;
+  font-size: 40px;
+  margin-top: 40px;
+}
+form{
+  font-size: 30px;
+  margin-top: 20px;
+  font-weight: bold;
+  color: blue;
+}
+    </style>
+</head>
+<body>
+    <center>
+    <header>Admin</header>
+       <form action="validateadmin.php" method="post">
+            <table>
+                <tr>
+                    <td>Email Id</td>
+                    <td><input name="email" type="text" required></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input name="password" type="password" required></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="submit"></td>
+                    <td><input type="reset"></td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>

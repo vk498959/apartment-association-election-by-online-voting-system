@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>ADD CANDIDATE</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../resources/main.css">
+  <style>
+      #add,#registercan{
+    background-color: red;
+    margin-top: 5%;
+    margin-left:25%;
+    margin-right:25%;
+    border: solid;
+    border-radius: 20%;
+    font-size: 30px;
+}
+td,tr{
+    border:solid;
+    background-color: skyblue;
+    font-size: 29px;
+}
+body {
+          background-image: url('../resources/background.jpg');
+        }
+  </style>
+</head>
+<body>
+    <center>
+        <header>ADMIN</header>
+        <div id="menu">
+            <a href="home.php">HOME</a>
+            <a href="addcandidate.html">ADD CANDIDATE</a>
+            <a href="result.php">RESULT</a>
+            <a href="signout.php">SIGN OUT</a>
+        </div>
+        <div>
+            <div id="add" onclick="change2()">CLICK HERE TO ADD CANDIDATE</div>
+        <div id="loginblock">
+            <!-- for register the candidate by admin -->
+                <table>
+                    <tr>
+                        <td>Candidate full name</td>
+                        <td><input type="text" id="fullname" required></td>
+                    </tr>
+                    <tr>
+                        <td>Candidate Designation</td>
+                        <td><input type="text" required id="designation"></td>
+                    </tr>
+                    <tr>
+                        <td>Candidate pincode</td>
+                        <td><input type="number" required id="pincode"></td>
+                    </tr>
+                </table>
+                <button id="register">REGISTER CANDIDATE</button>
+                <input type="reset">
+            
+        </div>
+        </div>
+        <div>
+            <div id="registercan" onclick="change1()">REGISTER CANDIDATE LIST</div>
+            <div id="registrationblock">
+            <div id="show"></div>
+            <div><button id="refresh">Refresh</button></div>
+            </div>
+        </div>
+        </center>
+        <script src="../resources/main.js"></script>
+        <script>
+            $(document).ready(function(){
+             function loadtable(){
+                 $.ajax({
+                     url : "addcandidate/listallcandidate.php",
+                     type : "POST",
+                     success : function(data){
+                         $("#show").html(data);
+                     }
+                    
+                 });
+             }
+            //  function for updating automatically in admin panel
+             loadtable();
+             $("#refresh").click(function(){
+                 loadtable();
+             });
+             $("#register").click(function(){
+                 var fullname= $("#fullname").val();
+                 var designation= $("#designation").val();
+                 var pincode= $("#pincode").val() ;
+                 if(fullname!=""&&designation!=""&&pincode!=""){
+                 $.ajax({
+                     url : "addcandidate/uploaddata.php",
+                     type : "POST",
+                     data : {fullname:fullname, designation:designation, pincode:pincode},
+                     success : function(data){
+                         
+                        loadtable();
+
+                     }
+                 });
+                }
+                else{
+                    loadtable();
+                }
+             });
+             
+            });
+            
+        </script>
+
+</body>
+</html>

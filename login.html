@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login/Registration</title>
+    <style>
+        body {
+          background-image: url('resources/background.jpg');
+        }
+        </style>
+   <style>
+       center{
+  background-color: skyblue;
+  border: solid;
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 5%;
+}
+#registration{
+  background-color: red;
+  font-size: 30px;
+  border:solid;
+  border-radius: 20%;
+  margin: 5%;
+}
+#signin{
+  background-color: blue;
+  font-size:30px;
+  border:solid;
+  border-radius: 20%;
+  margin: 5%;
+}
+   </style>
+    </head>
+<body>
+    <center>
+<!-- registration block for registration -->
+    <h4 id="registration" onclick="change1()">CLICK HERE FOR REGISTRATION</h4>
+    <div id="registrationblock">
+    <form method="POST" action="registration.php">
+        <table>
+        <tr><td>First name</td><td><input type="text" name="fname" required/></td></tr>
+        <tr><td>Last name</td><td><input type="text" name="lname" required/></td></tr>
+        <tr><td>Select gender</td></tr><tr><td></td><td><input type="radio" name="gender" value="Male">Male</td></tr>
+                                <tr><td></td><td><input type="radio" name="gender" value="Female">Female</td></tr>
+                                <tr><td></td><td><input type="radio" name="gender" value="Other">Other</td></tr>
+                                <tr><td><p></p></td></tr>
+         <tr><td>Phone No</td><td><input type="number" name="phoneno" required/></td></tr>
+         <tr><td>Address</td><td><input type="text" name="address" required/></td></tr> 
+         <tr><td>Pincode</td><td><input type="text" name="pincode" required/></td></tr> 
+         <tr><td>Email</td><td><input type="email" name="email" required/></td></tr>
+         <tr><td>Password</td><td><input type="password" name="password" required/></td></tr>                 
+                                                       
+        </table>
+                         
+        <div class="btn1">
+        <input type="submit" value="Register"/>
+        <input type="reset"/>
+        </div>
+        
+    </form>
+    <!--signin block for signin -->
+    </div>
+             <h4 id="signin" onclick="change2()">CLICK HERE FOR SIGN IN</h4>
+        <div id="loginblock">
+        <form method="POST" action="validatevoter.php" >
+            <table>
+            <tr><td>Enter your Email</td><td><input type="text" name="email" /></td></tr>
+            <tr><td>Enter your Password</td><td><input type="password" name="password"/></td></tr>
+            <tr><td><p></p></td></tr>
+        </table>
+          <div class="btn2">
+               <input type="submit" value="Signin">
+               <input type="reset"/>
+           </div>
+        </form>
+        </div>
+        </center>
+        <script src='resources/main.js'></script>
+     </body>
+</html>

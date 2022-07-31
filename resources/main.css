@@ -1,0 +1,27 @@
+    *{
+        padding:0;
+        margin:0;
+    }
+   header{
+        background-color: blue;
+        padding:1%;
+        font-size: 200%;
+        font-weight: 900;
+        color:rgb(0, 255, 42);
+    
+    }
+    a{
+        font-size: 100%;
+        padding: 2%;
+        background-color:rgb(255, 36, 72);
+        display:inline-block;
+        border:black;
+        border-radius: 20%;
+        font-weight: 900;
+        color:black
+        
+    }
+    #menu{
+        background-color: blue;
+        padding:2%;
+    }
